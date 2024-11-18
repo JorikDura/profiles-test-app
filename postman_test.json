@@ -159,7 +159,7 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "localhost/v1",
+			"value": "localhost/api",
 			"type": "string"
 		}
 	]
