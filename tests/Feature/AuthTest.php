@@ -11,7 +11,7 @@ describe('auth', function () {
     it('register a new user', function () {
         $data = [
             'email' => fake()->email,
-            'password' => $password = fake()->password,
+            'password' => $password = fake()->password(minLength: 8),
             'password_confirmation' => $password,
             'gender' => Gender::UNDEFINED
         ];
