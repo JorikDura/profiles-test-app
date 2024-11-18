@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "fd8a4682-0c57-44ef-918f-b9cde78e1ddf",
+		"name": "Тестовое",
+		"description": "Тестовое задание:\n\n1\\. Развернуть ларавел проект , либо использовать свой проект  \n2\\. Разработать метод апи «Регистрация нового юзера» api/registration с параметрами email, password, gender  \n3\\. Разработать апи метод api/profile для выдачи данных Пользователя  \n4\\. Предоставить документацию в виде Postman проекта  \n5\\. Представить скриншоты запросов из Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33439261"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Registration",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "test@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test_test_test_1234",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "test_test_test_1234",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/v1/registration",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"registration"
+									]
+								},
+								"description": "Регестрирует пользователя\n\n- email - обязательно, уникальное;\n    \n- password - пароль;\n    \n- password_confirmation - подтверждение пароля;\n    \n- gender - пол. возможные значения: male, female, undefined.\n    \n\n_Возвращает токен._"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Get Self",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/v1/profile",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"profile"
+									]
+								},
+								"description": "Возвращает текующего авторизованного пользователя.\n\n_**Требует токен.**_"
+							},
+							"response": []
+						},
+						{
+							"name": "Get user via id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/v1/profile/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"v1",
+										"profile",
+										"1"
+									]
+								},
+								"description": "Возвращает пользователя при помощи id."
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "string"
+		}
+	]
+}
